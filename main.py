@@ -81,3 +81,9 @@ if pokemon_data and pokemon_data_2:
             (poke_type,"", colours[poke_type]),
         )    
     
+    stats_data = {stat.get('stat').get('name'): stat.get('base_stat') for stat in pokemon_data.get('stats')}
+    stats_data_2 = {stat.get('stat').get('name'): stat.get('base_stat') for stat in pokemon_data_2.get('stats')}
+    stats_df = pd.DataFrame([stats_data,stats_data_2])
+
+    st.bar_chart(stats_df)
+    
